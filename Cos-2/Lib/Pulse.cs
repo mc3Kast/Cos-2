@@ -5,7 +5,7 @@ namespace Cos_2.Lib
 {
     public class Pulse : Distribution
     {
-        public Pulse(float a, float f, float fi0, int n, float d) : base(a, f, fi0, n)
+        public Pulse(float a, float f, float fi0, int n, float? d = 0.5f) : base(a, f, fi0, n)
         {
             this.d = d;
             Points = GetPoints(a, f, fi0, n, d);

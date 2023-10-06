@@ -30,26 +30,27 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chDist = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chAmp = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chPha = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btAdd = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbA = new System.Windows.Forms.TextBox();
             this.lbA = new System.Windows.Forms.Label();
             this.lbFi0 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbFi0 = new System.Windows.Forms.TextBox();
             this.lbF = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbF = new System.Windows.Forms.TextBox();
             this.lbD = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbD = new System.Windows.Forms.TextBox();
             this.lbK = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbK = new System.Windows.Forms.TextBox();
             this.lbN = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbN = new System.Windows.Forms.TextBox();
             this.rbCos = new System.Windows.Forms.RadioButton();
             this.rbTrian = new System.Windows.Forms.RadioButton();
             this.rbSin = new System.Windows.Forms.RadioButton();
@@ -70,7 +71,11 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series1.Name = "Series1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Name = "Series2";
             this.chDist.Series.Add(series1);
+            this.chDist.Series.Add(series2);
             this.chDist.Size = new System.Drawing.Size(477, 401);
             this.chDist.TabIndex = 0;
             this.chDist.Text = "chart1";
@@ -81,9 +86,9 @@
             this.chAmp.ChartAreas.Add(chartArea2);
             this.chAmp.Location = new System.Drawing.Point(472, 318);
             this.chAmp.Name = "chAmp";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Series1";
-            this.chAmp.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            this.chAmp.Series.Add(series3);
             this.chAmp.Size = new System.Drawing.Size(449, 401);
             this.chAmp.TabIndex = 1;
             this.chAmp.Text = "chart2";
@@ -94,9 +99,9 @@
             this.chPha.ChartAreas.Add(chartArea3);
             this.chPha.Location = new System.Drawing.Point(917, 318);
             this.chPha.Name = "chPha";
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.chPha.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.Name = "Series1";
+            this.chPha.Series.Add(series4);
             this.chPha.Size = new System.Drawing.Size(449, 401);
             this.chPha.TabIndex = 2;
             this.chPha.Text = "chart3";
@@ -111,12 +116,13 @@
             this.btAdd.UseVisualStyleBackColor = true;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
-            // textBox1
+            // tbA
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 20);
-            this.textBox1.TabIndex = 4;
+            this.tbA.Location = new System.Drawing.Point(12, 28);
+            this.tbA.Name = "tbA";
+            this.tbA.Size = new System.Drawing.Size(113, 20);
+            this.tbA.TabIndex = 4;
+            this.tbA.Text = "1";
             // 
             // lbA
             // 
@@ -136,12 +142,13 @@
             this.lbFi0.TabIndex = 7;
             this.lbFi0.Text = "fi0:";
             // 
-            // textBox2
+            // tbFi0
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 20);
-            this.textBox2.TabIndex = 6;
+            this.tbFi0.Location = new System.Drawing.Point(142, 28);
+            this.tbFi0.Name = "tbFi0";
+            this.tbFi0.Size = new System.Drawing.Size(113, 20);
+            this.tbFi0.TabIndex = 6;
+            this.tbFi0.Text = "0";
             // 
             // lbF
             // 
@@ -152,12 +159,13 @@
             this.lbF.TabIndex = 9;
             this.lbF.Text = "f:";
             // 
-            // textBox3
+            // tbF
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 96);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 20);
-            this.textBox3.TabIndex = 8;
+            this.tbF.Location = new System.Drawing.Point(12, 96);
+            this.tbF.Name = "tbF";
+            this.tbF.Size = new System.Drawing.Size(113, 20);
+            this.tbF.TabIndex = 8;
+            this.tbF.Text = "1";
             // 
             // lbD
             // 
@@ -168,12 +176,13 @@
             this.lbD.TabIndex = 11;
             this.lbD.Text = "d:";
             // 
-            // textBox4
+            // tbD
             // 
-            this.textBox4.Location = new System.Drawing.Point(142, 96);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 20);
-            this.textBox4.TabIndex = 10;
+            this.tbD.Location = new System.Drawing.Point(142, 96);
+            this.tbD.Name = "tbD";
+            this.tbD.Size = new System.Drawing.Size(113, 20);
+            this.tbD.TabIndex = 10;
+            this.tbD.Text = "0.5";
             // 
             // lbK
             // 
@@ -184,12 +193,13 @@
             this.lbK.TabIndex = 15;
             this.lbK.Text = "K:";
             // 
-            // textBox5
+            // tbK
             // 
-            this.textBox5.Location = new System.Drawing.Point(282, 96);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(113, 20);
-            this.textBox5.TabIndex = 14;
+            this.tbK.Location = new System.Drawing.Point(282, 96);
+            this.tbK.Name = "tbK";
+            this.tbK.Size = new System.Drawing.Size(113, 20);
+            this.tbK.TabIndex = 14;
+            this.tbK.Text = "64";
             // 
             // lbN
             // 
@@ -200,12 +210,13 @@
             this.lbN.TabIndex = 13;
             this.lbN.Text = "N:";
             // 
-            // textBox6
+            // tbN
             // 
-            this.textBox6.Location = new System.Drawing.Point(282, 28);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(113, 20);
-            this.textBox6.TabIndex = 12;
+            this.tbN.Location = new System.Drawing.Point(282, 28);
+            this.tbN.Name = "tbN";
+            this.tbN.Size = new System.Drawing.Size(113, 20);
+            this.tbN.TabIndex = 12;
+            this.tbN.Text = "128";
             // 
             // rbCos
             // 
@@ -270,6 +281,7 @@
             this.btClear.TabIndex = 21;
             this.btClear.Text = "clear";
             this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // Form1
             // 
@@ -283,17 +295,17 @@
             this.Controls.Add(this.rbTrian);
             this.Controls.Add(this.rbCos);
             this.Controls.Add(this.lbK);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbK);
             this.Controls.Add(this.lbN);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.tbN);
             this.Controls.Add(this.lbD);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbD);
             this.Controls.Add(this.lbF);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbF);
             this.Controls.Add(this.lbFi0);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbFi0);
             this.Controls.Add(this.lbA);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbA);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.chPha);
             this.Controls.Add(this.chAmp);
@@ -314,18 +326,18 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chAmp;
         private System.Windows.Forms.DataVisualization.Charting.Chart chPha;
         private System.Windows.Forms.Button btAdd;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbA;
         private System.Windows.Forms.Label lbA;
         private System.Windows.Forms.Label lbFi0;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbFi0;
         private System.Windows.Forms.Label lbF;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbF;
         private System.Windows.Forms.Label lbD;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbD;
         private System.Windows.Forms.Label lbK;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbK;
         private System.Windows.Forms.Label lbN;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbN;
         private System.Windows.Forms.RadioButton rbCos;
         private System.Windows.Forms.RadioButton rbTrian;
         private System.Windows.Forms.RadioButton rbSin;
