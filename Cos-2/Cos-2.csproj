@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Lib\Cos.cs" />
     <Compile Include="Lib\Distribution.cs" />
+    <Compile Include="Lib\DistributionType.cs" />
     <Compile Include="Lib\Pulse.cs" />
     <Compile Include="Lib\Sawtooth.cs" />
     <Compile Include="Lib\Sin.cs" />

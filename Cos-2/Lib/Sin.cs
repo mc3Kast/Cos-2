@@ -5,6 +5,7 @@ namespace Cos_2.Lib
 {
     public class Sin : Distribution
     {
+        public DistributionType Type = DistributionType.Sin;
         public Sin(float a, float f, float fi0, int n) : base(a, f, fi0, n)
         {
             Points = GetPoints(a, f, fi0, n);

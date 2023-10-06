@@ -5,6 +5,7 @@ namespace Cos_2.Lib
 {
     public class Trian : Distribution
     {
+        public DistributionType Type = DistributionType.Trian;
         public Trian(float a, float f, float fi0, int n) : base(a, f, fi0, n)
         {
             Points = GetPoints(a, f, fi0, n);

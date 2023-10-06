@@ -4,11 +4,11 @@ namespace Cos_2.Lib
 {
     public abstract class Distribution
     {
-        protected readonly float a;
-        protected readonly float f;
-        protected readonly float fi0;
-        protected readonly int n;
-        protected float? d;
+        public readonly float a;
+        public readonly float f;
+        public readonly float fi0;
+        public readonly int n;
+        public float? d;
 
         public abstract PointF[] Points { get; set; }
 
