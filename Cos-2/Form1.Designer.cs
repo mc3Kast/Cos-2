@@ -200,6 +200,7 @@
             this.tbK.Size = new System.Drawing.Size(113, 20);
             this.tbK.TabIndex = 14;
             this.tbK.Text = "64";
+            this.tbK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbK_KeyPress);
             // 
             // lbN
             // 
@@ -217,6 +218,7 @@
             this.tbN.Size = new System.Drawing.Size(113, 20);
             this.tbN.TabIndex = 12;
             this.tbN.Text = "128";
+            this.tbN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbN_KeyPress);
             // 
             // rbCos
             // 

@@ -25,6 +25,10 @@ namespace Cos_2
         public double[] AmplitudeSpectrum { get; set; }
         public double[] PhaseSpectrum { get; set; }
 
+        public double[] polyY;
+        public double[] polyX;
+        public double[] restoredY;
+
 
         private void btAdd_Click(object sender, EventArgs e)
         {
@@ -33,10 +37,8 @@ namespace Cos_2
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
 
-            double[] polyY = new double[Int32.Parse(tbN.Text)];
-            double[] polyX = new double[Int32.Parse(tbN.Text)];
 
-            double[] restoredY = new double[Int32.Parse(tbN.Text)];
+            restoredY = new double[Int32.Parse(tbN.Text)];
             Distribution distribution = new Cos(1, 1, 0, 128);
 
             if (rbCos.Checked)
@@ -113,6 +115,46 @@ namespace Cos_2
             chDist.Series[1].Points.Clear();
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
+        }
+
+        private void tbN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                polyY = new double[Int32.Parse(tbN.Text)];
+                polyX = new double[Int32.Parse(tbN.Text)];
+            }
+        }
+
+        private void tbK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                chDist.Series[0].Points.Clear();
+                chDist.Series[1].Points.Clear();
+                chAmp.Series[0].Points.Clear();
+                chPha.Series[0].Points.Clear();
+
+                SinSpectrum = SpectrumMath.SinSpectrum(polyY, Int32.Parse(tbK.Text));
+                CosSpectrum = SpectrumMath.CosSpectrum(polyY, Int32.Parse(tbK.Text));
+                AmplitudeSpectrum = SpectrumMath.AmplitudeSpectrum(Int32.Parse(tbK.Text), SinSpectrum, CosSpectrum);
+                PhaseSpectrum = SpectrumMath.PhaseSpectrum(Int32.Parse(tbK.Text), SinSpectrum, CosSpectrum);
+                restoredY = SpectrumMath.RestoredSignal(Int32.Parse(tbK.Text), Int32.Parse(tbN.Text), AmplitudeSpectrum, PhaseSpectrum);
+
+                for (int i = 0; i < Int32.Parse(tbN.Text); i++)
+                {
+                    chDist.Series[0].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[1].Points.AddXY(polyX[i], restoredY[i]);
+                }
+
+
+                for (int i = 0; i < AmplitudeSpectrum.Length; i++)
+                {
+                    chAmp.Series[0].Points.AddXY(i, AmplitudeSpectrum[i]);
+                    chPha.Series[0].Points.AddXY(i, PhaseSpectrum[i]);
+                }
+            }
+
         }
     }
 }
