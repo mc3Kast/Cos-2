@@ -26,7 +26,6 @@ namespace Cos_2
         public double[] PhaseSpectrum { get; set; }
 
 
-        Distribution distribution;
         private void btAdd_Click(object sender, EventArgs e)
         {
             chDist.Series[0].Points.Clear();
@@ -99,8 +98,12 @@ namespace Cos_2
             {
                 chDist.Series[0].Points.AddXY(polyX[i], polyY[i]);
                 chDist.Series[1].Points.AddXY(polyX[i], restoredY[i]);
-                //chAmp.Series[0].Points.AddXY(i, formulas.PulsE(i));
-                //chPha.Series[0].Points.AddXY(i, formulas.TrinE(i));
+            }
+
+            for (int i = 0; i < AmplitudeSpectrum.Length; i++)
+            {
+                chAmp.Series[0].Points.AddXY(i, AmplitudeSpectrum[i]);
+                chPha.Series[0].Points.AddXY(i, PhaseSpectrum[i]);
             }
         }
 
