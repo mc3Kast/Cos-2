@@ -57,6 +57,7 @@
     <Compile Include="Lib\Pulse.cs" />
     <Compile Include="Lib\Sawtooth.cs" />
     <Compile Include="Lib\Sin.cs" />
+    <Compile Include="Lib\SpectrumMath.cs" />
     <Compile Include="Lib\Trian.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
