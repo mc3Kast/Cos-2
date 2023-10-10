@@ -216,6 +216,187 @@ namespace Cos_2
             }
 
         }
+
+        private void DistributionRedrawA(float a)
+        {
+            Distribution distrib;
+            int i = 0;
+            foreach (Distribution dist in distributionsList)
+            {
+                if (distributionTypes[i] == DistributionType.Saw)
+                {
+                    distrib = new Sawtooth(a, dist.f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Cos)
+                {
+                    distrib = new Cos(a, dist.f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Sin)
+                {
+                    distrib = new Sin(a, dist.f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Trian)
+                {
+                    distrib = new Trian(a, dist.f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Pulse)
+                {
+                    distrib = new Pulse(a, dist.f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+
+                CompAndDraw();
+                i++;
+            }
+
+        }
+
+        private void DistributionRedrawF(float f)
+        {
+            Distribution distrib;
+            int i = 0;
+            foreach (Distribution dist in distributionsList)
+            {
+                if (distributionTypes[i] == DistributionType.Saw)
+                {
+                    distrib = new Sawtooth(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Cos)
+                {
+                    distrib = new Cos(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Sin)
+                {
+                    distrib = new Sin(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Trian)
+                {
+                    distrib = new Trian(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Pulse)
+                {
+                    distrib = new Pulse(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+
+                CompAndDraw();
+                i++;
+            }
+
+        }
+        private void DistributionRedrawF(float f)
+        {
+            Distribution distrib;
+            int i = 0;
+            foreach (Distribution dist in distributionsList)
+            {
+                if (distributionTypes[i] == DistributionType.Saw)
+                {
+                    distrib = new Sawtooth(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Cos)
+                {
+                    distrib = new Cos(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Sin)
+                {
+                    distrib = new Sin(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+
+                }
+                else if (distributionTypes[i] == DistributionType.Trian)
+                {
+                    distrib = new Trian(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+                else if (distributionTypes[i] == DistributionType.Pulse)
+                {
+                    distrib = new Pulse(dist.a, f, dist.fi0, dist.n);
+                    for (int j = 0; j < Int32.Parse(tbN.Text); j++)
+                    {
+                        polyY[j] += distrib.Points[j].Y;
+                        polyX[j] += distrib.Points[j].X;
+                    }
+                }
+
+                CompAndDraw();
+                i++;
+            }
+
+        }
+
+
         private void CompAndDraw()
         {
             chDist.Series[0].Points.Clear();
