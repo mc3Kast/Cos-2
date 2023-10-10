@@ -64,6 +64,7 @@
             // 
             // chDist
             // 
+            chartArea1.AxisX.Minimum = 0D;
             chartArea1.Name = "ChartArea1";
             this.chDist.ChartAreas.Add(chartArea1);
             this.chDist.Location = new System.Drawing.Point(1, 318);
@@ -125,6 +126,7 @@
             this.tbA.Size = new System.Drawing.Size(113, 20);
             this.tbA.TabIndex = 4;
             this.tbA.Text = "1";
+            this.tbA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbA_KeyPress);
             // 
             // lbA
             // 
@@ -151,6 +153,7 @@
             this.tbFi0.Size = new System.Drawing.Size(113, 20);
             this.tbFi0.TabIndex = 6;
             this.tbFi0.Text = "0";
+            this.tbFi0.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFi0_KeyPress);
             // 
             // lbF
             // 
@@ -168,6 +171,7 @@
             this.tbF.Size = new System.Drawing.Size(113, 20);
             this.tbF.TabIndex = 8;
             this.tbF.Text = "1";
+            this.tbF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbF_KeyPress);
             // 
             // lbD
             // 
