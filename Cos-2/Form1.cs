@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Cos_2
 {
@@ -12,6 +13,8 @@ namespace Cos_2
             InitializeComponent();
             distributionTypes = new List<DistributionType>();
             distributionsList = new List<Distribution>();
+            chAmp.MouseWheel += ch_MouseWheel;
+            chPha.MouseWheel += ch_MouseWheel;
         }
 
         public double[] SinSpectrum { get; set; }
@@ -201,6 +204,38 @@ namespace Cos_2
                 CompAndDraw();
             }
 
+        }
+
+        private void ch_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var chart = (Chart)sender;
+            var xAxis = chart.ChartAreas[0].AxisX;
+            var yAxis = chart.ChartAreas[0].AxisY;
+
+            try
+            {
+                if (e.Delta < 0) // Scrolled down.
+                {
+                    xAxis.ScaleView.ZoomReset();
+                    yAxis.ScaleView.ZoomReset();
+                }
+                else if (e.Delta > 0) // Scrolled up.
+                {
+                    var xMin = xAxis.ScaleView.ViewMinimum;
+                    var xMax = xAxis.ScaleView.ViewMaximum;
+                    var yMin = yAxis.ScaleView.ViewMinimum;
+                    var yMax = yAxis.ScaleView.ViewMaximum;
+
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 4;
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 4;
+                    var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 4;
+                    var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 4;
+
+                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
+                    yAxis.ScaleView.Zoom(posYStart, posYFinish);
+                }
+            }
+            catch { }
         }
     }
 }

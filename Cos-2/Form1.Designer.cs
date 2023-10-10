@@ -82,9 +82,10 @@
             // 
             // chAmp
             // 
+            chartArea2.AxisX.Minimum = 0D;
             chartArea2.Name = "ChartArea1";
             this.chAmp.ChartAreas.Add(chartArea2);
-            this.chAmp.Location = new System.Drawing.Point(472, 318);
+            this.chAmp.Location = new System.Drawing.Point(475, 318);
             this.chAmp.Name = "chAmp";
             series3.ChartArea = "ChartArea1";
             series3.Name = "Series1";
@@ -95,6 +96,7 @@
             // 
             // chPha
             // 
+            chartArea3.AxisX.Minimum = 0D;
             chartArea3.Name = "ChartArea1";
             this.chPha.ChartAreas.Add(chartArea3);
             this.chPha.Location = new System.Drawing.Point(917, 318);
