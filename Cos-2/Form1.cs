@@ -336,7 +336,7 @@ namespace Cos_2
             }
 
         }
-        private void DistributionRedrawF(float f)
+        private void DistributionRedrawFi0(float fi0)
         {
             Distribution distrib;
             int i = 0;
@@ -344,7 +344,7 @@ namespace Cos_2
             {
                 if (distributionTypes[i] == DistributionType.Saw)
                 {
-                    distrib = new Sawtooth(dist.a, f, dist.fi0, dist.n);
+                    distrib = new Sawtooth(dist.a, dist.f, fi0, dist.n);
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
                         polyY[j] += distrib.Points[j].Y;
@@ -353,7 +353,7 @@ namespace Cos_2
                 }
                 else if (distributionTypes[i] == DistributionType.Cos)
                 {
-                    distrib = new Cos(dist.a, f, dist.fi0, dist.n);
+                    distrib = new Cos(dist.a, dist.f, fi0, dist.n);
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
                         polyY[j] += distrib.Points[j].Y;
@@ -363,7 +363,7 @@ namespace Cos_2
                 }
                 else if (distributionTypes[i] == DistributionType.Sin)
                 {
-                    distrib = new Sin(dist.a, f, dist.fi0, dist.n);
+                    distrib = new Sin(dist.a, dist.f, fi0, dist.n);
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
                         polyY[j] += distrib.Points[j].Y;
@@ -373,7 +373,7 @@ namespace Cos_2
                 }
                 else if (distributionTypes[i] == DistributionType.Trian)
                 {
-                    distrib = new Trian(dist.a, f, dist.fi0, dist.n);
+                    distrib = new Trian(dist.a, dist.f, fi0, dist.n);
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
                         polyY[j] += distrib.Points[j].Y;
@@ -382,7 +382,7 @@ namespace Cos_2
                 }
                 else if (distributionTypes[i] == DistributionType.Pulse)
                 {
-                    distrib = new Pulse(dist.a, f, dist.fi0, dist.n);
+                    distrib = new Pulse(dist.a, dist.f, fi0, dist.n);
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
                         polyY[j] += distrib.Points[j].Y;
