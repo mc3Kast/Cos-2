@@ -35,6 +35,9 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chDist = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chAmp = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chPha = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -57,9 +60,11 @@
             this.rbPulse = new System.Windows.Forms.RadioButton();
             this.rbSaw = new System.Windows.Forms.RadioButton();
             this.btClear = new System.Windows.Forms.Button();
+            this.chFlower = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.chDist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chAmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chPha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chFlower)).BeginInit();
             this.SuspendLayout();
             // 
             // chDist
@@ -291,11 +296,31 @@
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
+            // chFlower
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chFlower.ChartAreas.Add(chartArea4);
+            this.chFlower.Location = new System.Drawing.Point(953, 12);
+            this.chFlower.Name = "chFlower";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series5.Name = "Series1";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series6.Name = "Series2";
+            this.chFlower.Series.Add(series5);
+            this.chFlower.Series.Add(series6);
+            this.chFlower.Size = new System.Drawing.Size(373, 288);
+            this.chFlower.TabIndex = 22;
+            this.chFlower.Text = "chart1";
+            this.chFlower.TextAntiAliasingQuality = System.Windows.Forms.DataVisualization.Charting.TextAntiAliasingQuality.SystemDefault;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1378, 744);
+            this.Controls.Add(this.chFlower);
             this.Controls.Add(this.btClear);
             this.Controls.Add(this.rbSaw);
             this.Controls.Add(this.rbPulse);
@@ -323,6 +348,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chDist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chAmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chPha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chFlower)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +378,7 @@
         private System.Windows.Forms.RadioButton rbPulse;
         private System.Windows.Forms.RadioButton rbSaw;
         private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chFlower;
     }
 }
 

@@ -15,6 +15,7 @@ namespace Cos_2
             distributionsList = new List<Distribution>();
             chAmp.MouseWheel += ch_MouseWheel;
             chPha.MouseWheel += ch_MouseWheel;
+            chFlower.MouseWheel += ch_MouseWheel;
             polyY = new double[Int32.Parse(tbN.Text)];
             polyX = new double[Int32.Parse(tbN.Text)];
         }
@@ -102,6 +103,7 @@ namespace Cos_2
             chDist.Series[1].Points.Clear();
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
+            chFlower.Series[0].Points.Clear();
 
             distributionTypes.Clear();
             distributionsList.Clear();
@@ -197,6 +199,7 @@ namespace Cos_2
                 if (distributionTypes[i] == DistributionType.Saw)
                 {
                     distrib = new Sawtooth(distributionsList[i].a, distributionsList[i].f, distributionsList[i].fi0, Int32.Parse(tbN.Text));
+                    distributionsList[i] = distrib;
                     distributionsList[i] = distrib;
                     for (int j = 0; j < Int32.Parse(tbN.Text); j++)
                     {
@@ -447,6 +450,7 @@ namespace Cos_2
             chDist.Series[1].Points.Clear();
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
+            chFlower.Series[0].Points.Clear();
 
             SinSpectrum = SpectrumMath.SinSpectrum(polyY, Int32.Parse(tbK.Text));
             CosSpectrum = SpectrumMath.CosSpectrum(polyY, Int32.Parse(tbK.Text));
@@ -465,6 +469,7 @@ namespace Cos_2
             {
                 chAmp.Series[0].Points.AddXY(i, AmplitudeSpectrum[i]);
                 chPha.Series[0].Points.AddXY(i, PhaseSpectrum[i]);
+                chFlower.Series[0].Points.AddXY(CosSpectrum[i], SinSpectrum[i]);
             }
         }
 
