@@ -8,15 +8,16 @@ namespace Cos_2.Lib
 {
     public static class SpectrumMath
     {
-        public static double[] SinSpectrum(double[] values, int k) //Im
+        public static double[] SinSpectrum(double[] values, int k, int n) //Im
         {
+            int coeff = n / k;
             double[] result = new double[k];
             for (int j = 0; j < k; j++)
             {
                 double value = 0;
                 for (int i = 0; i < k; i++)
                 {
-                    value += values[i] * Math.Sin(2 * Math.PI * i * j / k);
+                    value += values[i*coeff] * Math.Sin(2 * Math.PI * i * j / k);
                 }
 
                 result[j] = 2 * value / k;
@@ -25,15 +26,16 @@ namespace Cos_2.Lib
             return result;
         }
 
-        public static double[] CosSpectrum(double[] values, int k) //Re
+        public static double[] CosSpectrum(double[] values, int k, int n) //Re
         {
+            int coeff = n / k;
             double[] result = new double[k];
             for (int j = 0; j < k; j++)
             {
                 double value = 0;
                 for (int i = 0; i < k; i++)
                 {
-                    value += values[i] * Math.Cos(2 * Math.PI * i * j / k);
+                    value += values[i*coeff] * Math.Cos(2 * Math.PI * i * j / k);
                 }
 
                 result[j] = 2 * value / k;

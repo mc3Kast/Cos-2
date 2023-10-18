@@ -20,17 +20,17 @@ namespace Cos_2
             polyX = new double[Int32.Parse(tbN.Text)];
         }
 
-        public double[] SinSpectrum { get; set; }
-        public double[] CosSpectrum { get; set; }
-        public double[] AmplitudeSpectrum { get; set; }
-        public double[] PhaseSpectrum { get; set; }
+        private double[] SinSpectrum { get; set; }
+        private double[] CosSpectrum { get; set; }
+        private double[] AmplitudeSpectrum { get; set; }
+        private double[] PhaseSpectrum { get; set; }
 
-        public double[] polyY;
-        public double[] polyX;
-        public double[] restoredY;
+        private double[] polyY;
+        private double[] polyX;
+        private double[] restoredY;
 
-        public List<DistributionType> distributionTypes;
-        public List<Distribution> distributionsList;
+        private List<DistributionType> distributionTypes;
+        private List<Distribution> distributionsList;
 
         private void btAdd_Click(object sender, EventArgs e)
         {
@@ -42,6 +42,7 @@ namespace Cos_2
                 distribution = new Cos(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
+                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -54,6 +55,7 @@ namespace Cos_2
                 distribution = new Sin(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
+                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -65,6 +67,7 @@ namespace Cos_2
                 distribution = new Pulse(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
+                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -76,6 +79,7 @@ namespace Cos_2
                 distribution = new Trian(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
+                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -87,6 +91,7 @@ namespace Cos_2
                 distribution = new Sawtooth(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
+                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -101,10 +106,12 @@ namespace Cos_2
         {
             chDist.Series[0].Points.Clear();
             chDist.Series[1].Points.Clear();
+            chDist.Series[2].Points.Clear();
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
             chFlower.Series[0].Points.Clear();
-
+            polyY = new double[Int32.Parse(tbN.Text)];
+            polyX = new double[Int32.Parse(tbN.Text)];
             distributionTypes.Clear();
             distributionsList.Clear();
         }
@@ -448,12 +455,13 @@ namespace Cos_2
         {
             chDist.Series[0].Points.Clear();
             chDist.Series[1].Points.Clear();
+            //chDist.Series[2].Points.Clear();
             chAmp.Series[0].Points.Clear();
             chPha.Series[0].Points.Clear();
             chFlower.Series[0].Points.Clear();
 
-            SinSpectrum = SpectrumMath.SinSpectrum(polyY, Int32.Parse(tbK.Text));
-            CosSpectrum = SpectrumMath.CosSpectrum(polyY, Int32.Parse(tbK.Text));
+            SinSpectrum = SpectrumMath.SinSpectrum(polyY, Int32.Parse(tbK.Text), Int32.Parse(tbN.Text));
+            CosSpectrum = SpectrumMath.CosSpectrum(polyY, Int32.Parse(tbK.Text), Int32.Parse(tbN.Text));
             AmplitudeSpectrum = SpectrumMath.AmplitudeSpectrum(Int32.Parse(tbK.Text), SinSpectrum, CosSpectrum);
             PhaseSpectrum = SpectrumMath.PhaseSpectrum(Int32.Parse(tbK.Text), SinSpectrum, CosSpectrum);
             restoredY = SpectrumMath.RestoredSignal(Int32.Parse(tbK.Text), Int32.Parse(tbN.Text), AmplitudeSpectrum, PhaseSpectrum);
