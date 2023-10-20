@@ -11,6 +11,7 @@ namespace Cos_2
     {
         public Form1()
         {
+            Program.f1 = this;
             InitializeComponent();
             distributionTypes = new List<DistributionType>();
             distributionsList = new List<Distribution>();
@@ -37,13 +38,14 @@ namespace Cos_2
         {
             restoredY = new double[Int32.Parse(tbN.Text)];
             Distribution distribution = new Cos(1, 1, 0, 128);
+            chDist.Series[2].Points.Clear();
 
             if (rbCos.Checked)
             {
                 distribution = new Cos(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
-                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[2].Points.AddXY(distribution.Points[i].X, distribution.Points[i].Y);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -56,7 +58,7 @@ namespace Cos_2
                 distribution = new Sin(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
-                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[2].Points.AddXY(distribution.Points[i].X, distribution.Points[i].Y);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -68,7 +70,7 @@ namespace Cos_2
                 distribution = new Pulse(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
-                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[2].Points.AddXY(distribution.Points[i].X, distribution.Points[i].Y);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -80,7 +82,7 @@ namespace Cos_2
                 distribution = new Trian(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
-                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[2].Points.AddXY(distribution.Points[i].X, distribution.Points[i].Y);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
@@ -92,14 +94,16 @@ namespace Cos_2
                 distribution = new Sawtooth(float.Parse(tbA.Text), float.Parse(tbF.Text), float.Parse(tbFi0.Text), Int32.Parse(tbN.Text));
                 for (int i = 0; i < Int32.Parse(tbN.Text); i++)
                 {
-                    chDist.Series[2].Points.AddXY(polyX[i], polyY[i]);
+                    chDist.Series[2].Points.AddXY(distribution.Points[i].X, distribution.Points[i].Y);
                     polyY[i] += distribution.Points[i].Y;
                     polyX[i] += distribution.Points[i].X;
                 }
                 distributionTypes.Add(DistributionType.Saw);
                 distributionsList.Add(distribution);
             }
-            chDist.Series[2].Color = Color.FromArgb(255 - distributionsList.Count * 2, 0, 255 - distributionsList.Count);
+
+
+            //chDist.Series[2].Color = Color.FromArgb(255 - distributionsList.Count * 20, 0 + distributionsList.Count*20, 255 - distributionsList.Count*10);
 
             CompAndDraw();
         }
@@ -483,5 +487,10 @@ namespace Cos_2
             }
         }
 
+        private void chDist_DoubleClick(object sender, EventArgs e)
+        {
+            Form2 frm = new Form2();
+            frm.Show();
+        }
     }
 }

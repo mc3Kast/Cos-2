@@ -77,13 +77,15 @@
             this.chDist.Name = "chDist";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.Maroon;
             series1.Name = "Series1";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Navy;
             series2.Name = "Series2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.OliveDrab;
+            series3.Color = System.Drawing.Color.DarkGreen;
             series3.Name = "Series3";
             this.chDist.Series.Add(series1);
             this.chDist.Series.Add(series2);
@@ -91,6 +93,7 @@
             this.chDist.Size = new System.Drawing.Size(477, 401);
             this.chDist.TabIndex = 0;
             this.chDist.Text = "chart1";
+            this.chDist.DoubleClick += new System.EventHandler(this.chDist_DoubleClick);
             // 
             // chAmp
             // 
@@ -362,7 +365,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chDist;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chDist;
         private System.Windows.Forms.DataVisualization.Charting.Chart chAmp;
         private System.Windows.Forms.DataVisualization.Charting.Chart chPha;
         private System.Windows.Forms.Button btAdd;
