@@ -83,6 +83,7 @@
             series2.Name = "Series2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.OliveDrab;
             series3.Name = "Series3";
             this.chDist.Series.Add(series1);
             this.chDist.Series.Add(series2);

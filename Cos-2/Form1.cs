@@ -1,6 +1,7 @@
 ﻿using Cos_2.Lib;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -98,6 +99,7 @@ namespace Cos_2
                 distributionTypes.Add(DistributionType.Saw);
                 distributionsList.Add(distribution);
             }
+            chDist.Series[2].Color = Color.FromArgb(255 - distributionsList.Count * 2, 0, 255 - distributionsList.Count);
 
             CompAndDraw();
         }
@@ -477,7 +479,7 @@ namespace Cos_2
             {
                 chAmp.Series[0].Points.AddXY(i, AmplitudeSpectrum[i]);
                 chPha.Series[0].Points.AddXY(i, PhaseSpectrum[i]);
-                chFlower.Series[0].Points.AddXY(CosSpectrum[i], SinSpectrum[i]);
+                //chFlower.Series[0].Points.AddXY(CosSpectrum[i], SinSpectrum[i]);
             }
         }
 
